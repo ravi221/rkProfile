@@ -1,4 +1,4 @@
-**Step #1**:  Create repository on github
+**Step #1**:  Create repository on github  
 **Step #2**:  Clone repository to local computer (to work and reupload)  
 ```sh
 $ git clone https://github.com/ravi221/rkProfile.git
