@@ -1,7 +1,8 @@
-Step #1: Folder structure and basic components
-Create Folder:  app/components
-Components to create
-app/components/about
+# Implementation of Routing 
+### Step #1: Folder structure and basic components  
+Create Folder:  app/components  
+Components to create  
+app/components/about  
 	- about.component.ts
 ```javascript
 	import { Component } from '@angular/core';
@@ -11,14 +12,14 @@ app/components/about
 	export class AboutComponent {
 	}
 ```
-app/components/contact
-	- contact.component.ts
-app/components/home
-	- home.component.ts
-app/components/profile
-	- profile.component.ts
+app/components/contact  
+	- contact.component.ts  
+app/components/home  
+	- home.component.ts  
+app/components/profile  
+	- profile.component.ts  
 
-Step #2: Add components to app.module.ts
+### Step #2: Add components to app.module.ts
 ```javascript
 ...
 import { HomeComponent }      from './components/home/home.component';
@@ -30,11 +31,11 @@ bootstrap:    [ AppComponent, HomeComponent, AboutComponent, ProfileComponent, C
 ...
 ```
 
-Step #3: Create a new file app.routing.ts
+### Step #3: Create a new file app.routing.ts
 File contents:
 ...
 
-Step #4: include app.routing to app.module
+### Step #4: include app.routing to app.module
 ```javascript
 ...
 import {routing} from './app/app.routing';
@@ -43,15 +44,15 @@ imports:      [ BrowserModule, routing ],
 ...
 ```
 
-Step #5: Add base href to index.html
+###  Step #5: Add base href to index.html
 
 ```html
 <head>
   <base href="/">
 ```
 
-Step #6: create router-outlet 
-File : theme.tpl.html
+###  Step #6: create router-outlet   
+File : theme.tpl.html  
 Include router-outline where the page content goes
 ```html
 <body>
@@ -62,8 +63,10 @@ Include router-outline where the page content goes
 ...
 ```
 
-Step #7: Create menu items
-File: themes/default/theme.tpl.html
+Step #7: Create menu items  
+File: themes/default/theme.tpl.html  
+```html
 ...
 <a class="nav-link" routerLink="/home" routerLinkActive="active"><i class="glyphicon glyphicon-home"></i> Home </a>
 ...
+```
