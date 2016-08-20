@@ -27,7 +27,7 @@ import { AboutComponent }      from './components/about/about.component';
 import { ProfileComponent }      from './components/profile/profile.component';
 import { ContactComponent }      from './components/contact/contact.component';
 ...
-bootstrap:    [ AppComponent, HomeComponent, AboutComponent, ProfileComponent, ContactComponent ]
+declarations: [ AppComponent, HomeComponent, AboutComponent, ProfileComponent, ContactComponent ],
 ...
 ```
 
