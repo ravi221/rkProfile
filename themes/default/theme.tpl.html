@@ -6,23 +6,21 @@
       <div id="exCollapsingNavbar2" class="collapse navbar-toggleable-xs">
       <ul class="nav navbar-nav pull-right">
           <li class="nav-item  ">
-              <a class="nav-link" href="#"><i class="glyphicon glyphicon-home"></i> Home </a>
+              <a class="nav-link" routerLink="/home" routerLinkActive="active"><i class="glyphicon glyphicon-home"></i> Home </a>
           </li>        
           <li class="nav-item  ">
-              <a class="nav-link" href="news"><i class=" glyphicon glyphicon-th"></i> News </a>
+              <a class="nav-link" routerLink="/about" routerLinkActive="active"><i class=" glyphicon glyphicon-th"></i> About </a>
           </li>
           <li class="nav-item  ">
-              <a class="nav-link" href="about"><i class=" glyphicon glyphicon-th"></i> About </a>
+              <a class="nav-link" routerLink="/profile" routerLinkActive="active"><i class=" glyphicon glyphicon-user"></i> Profile </a>
           </li>        
           <li class="nav-item  ">
-              <a class="nav-link" href="contact"><i class="glyphicon glyphicon-envelope"></i> Contact </a>
+              <a class="nav-link" routerLink="/contact" routerLinkActive="active"><i class="glyphicon glyphicon-envelope"></i> Contact </a>
           </li>        
       </ul>    
       </div>
   </nav>
-
     <router-outlet></router-outlet>
-
     <!-- Site footer -->
     <footer class="footer">
         <p>&copy; Company 2016</p>
