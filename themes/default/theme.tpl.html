@@ -1,7 +1,7 @@
 <div class="container">
 
   <nav class="navbar navbar-dark bg-inverse">
-      <a href="/en/" class="navbar-brand">{{'LOGO_TEXT' | translate}} <small>{{'LOGO_CAPTION' | translate}}</small></a>
+      <a href="/en/" class="navbar-brand">{{'LOGO_CAPTION' | translate}}</a>
       <button data-target="#exCollapsingNavbar2" data-toggle="collapse" type="button" class="navbar-toggler hidden-sm-up"> ☰ </button>
       <div id="exCollapsingNavbar2" class="collapse navbar-toggleable-xs">
       <ul class="nav navbar-nav pull-right">
@@ -16,7 +16,27 @@
           </li>        
           <li class="nav-item  ">
               <a class="nav-link" routerLink="/contact" routerLinkActive="active"><i class="glyphicon glyphicon-envelope"></i> {{'MENU_ITEM_CONTACT' | translate}} </a>
-          </li>        
+          </li> 
+
+          <!-- <li class="nav-item  ">
+              <a class="nav-link" routerLink="/register" routerLinkActive="active"><i class=" glyphicon glyphicon-user"></i> {{'MENU_ITEM_REGISTER' | translate}} </a>
+          </li>  
+
+          
+          <li class="nav-item  ">
+              <a class="nav-link" routerLink="/doctors" routerLinkActive="active"><i class=" glyphicon glyphicon-user"></i> {{'MENU_ITEM_DOCTORS' | translate}} </a>
+          </li>  
+
+          <li class="nav-item  ">
+              <a class="nav-link" routerLink="/feedback" routerLinkActive="active"><i class=" glyphicon glyphicon-user"></i> {{'MENU_ITEM_FEEDBACK' | translate}} </a>
+          </li> -->
+          
+          <li class="nav-item " *ngIf="auth.isLogged()">
+              <a class="nav-link" routerLink="/login" routerLinkActive="active"><i class=" glyphicon glyphicon-user"></i> LogOut </a>
+          </li>
+          <li class="nav-item " *ngIf="!auth.isLogged()">
+              <a class="nav-link" routerLink="/login" routerLinkActive="active"><i class=" glyphicon glyphicon-user"></i> {{'MENU_ITEM_LOGIN' | translate}} </a>
+          </li>                
       </ul>    
       </div>
   </nav>

@@ -40,9 +40,9 @@ h1, h2, h3, h4, h5, h6 {
     word-wrap: break-word;
 }
 .box {
-    background-color: #fff;
-    border: 1px solid #d3e0e9;
-    display: block;
+    background-color: ;
+    border: 0px solid #d3e0e9;
+    display: inline;
     margin-bottom: -1px;
     padding: 10px 15px 5px 5px;
     position: relative;

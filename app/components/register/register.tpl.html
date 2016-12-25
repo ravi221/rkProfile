@@ -1,0 +1,211 @@
+{{diagnostic}}
+
+	<div *ngIf="result?.res" class="alert alert-success">
+		{{result?.res}}
+
+		<a  routerLink="/home" class="btn btn-sm btn-success" > Continue to Home</a>
+	</div>
+
+	<p class="alert alert-danger" *ngIf="errMessage" [innerHTML]="errMessage"></p>
+
+	<form *ngIf="!submitted" (ngSubmit)="onSubmit()" #registerForm="ngForm"  method="post">
+
+  <div class="container box" >
+
+    <div class="row">
+    	
+        <div class="col-sm-12 col-md-12">  <!--    Header Left   -->
+
+    		<div class="row">
+						
+				<!-- START Presonal information -->
+				<fieldset class="col-md-6">
+						<div class="form-group">
+							<label class="col-form-label" for="Title">{{'REGISTER_TITLE' | translate}}</label>
+			                <select type="text" id="Title" class="form-control "
+			                  minlength="2" maxlength="24"
+			                 name="Title" [(ngModel)]="model.Title"
+			                 #name="ngModel" >
+			                 	<option value="Mr.">Mr.</option>
+			                 	<option value="Mrs.">Mrs.</option>
+			                 	<option value="Miss.">Miss.</option>
+			                 </select>
+						</div>
+						<div class="form-group">
+							<label class="col-form-label" for="FirstName">{{'REGISTER_FIRSTNAME' | translate}}</label>
+			                <input type="text" id="FirstName" class="form-control "
+			                 required minlength="4" maxlength="24"
+			                 name="FirstName" [(ngModel)]="model.FirstName"
+			                 #name="ngModel" >
+						</div>
+				
+					<div class="row">
+						<div class="col-sm-6 form-group">
+							<label class="" for="MiddleName">{{'REGISTER_MIDDLENAME' | translate}}</label>
+			                <input type="text" id="MiddleName" class="form-control "
+			                  minlength="4" maxlength="24"
+			                 name="MiddleName" [(ngModel)]="model.MiddleName"
+			                 #name="ngModel" >
+						</div>
+						<div class="col-sm-6 form-group">
+							<label class="" for="LastName">{{'REGISTER_LASTNAME' | translate}}</label>
+			                <input type="text" id="LastName" class="form-control "
+			                  minlength="4" maxlength="24"
+			                 name="LastName" [(ngModel)]="model.LastName"
+			                 #name="ngModel" >
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6 form-group">
+							<label class="" for="Age">{{'REGISTER_AGE' | translate}}</label>
+			                <input type="text" id="Age" class="form-control "
+			                  minlength="4" maxlength="24"
+			                 name="Age" [(ngModel)]="model.Age"
+			                 #name="ngModel" >
+						</div>
+						<div class="col-sm-6 form-group">
+							<label class="" for="Gender">{{'REGISTER_GENDER' | translate}}</label>
+							<select id="Gender" class="form-control "
+					                  minlength="4" maxlength="24" value="male"
+					                 name="Gender" [(ngModel)]="model.Gender"
+					                 #name="ngModel" ><option>select</option><option value="male">Male</option><option value="female">Female</option></select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-form-label" for="DateOfBirth">{{'REGISTER_DATEOFBIRTH' | translate}}</label>
+			            <input type="date" id="DateOfBirth" class="form-control "
+			             minlength="4" maxlength="24"
+			            name="DateOfBirth" [(ngModel)]="model.DateOfBirth"
+			            #name="ngModel" >
+					</div>
+					<div class="form-group">
+						<label class="col-form-label" for="Address">{{'REGISTER_ADDRESS' | translate}}</label>
+			            <input type="text" id="Address" class="form-control "
+			            required minlength="4" maxlength="24"
+			            name="Address" [(ngModel)]="model.Address"
+			            #name="ngModel" >
+					</div>
+					<div class="form-group">
+						<label class="col-form-label" for="Email">{{'REGISTER_EMAIL' | translate}}</label>
+			            <input type="email" id="Email" class="form-control "
+			            required minlength="4" maxlength="24"
+			            name="Email" [(ngModel)]="model.Email"
+			            #name="ngModel" >
+					</div>
+
+					<!-- Name -->
+					
+				</fieldset>
+				<fieldset class="col-md-6">
+						<div class="form-group">
+							<label class="" for="FatherName">{{'REGISTER_FATHERNAME' | translate}}</label>
+			                <input type="text" id="FatherName" class="form-control "
+			                  minlength="4" maxlength="24"
+			                 name="FatherName" [(ngModel)]="model.FatherName"
+			                 #name="ngModel" >
+						</div>
+						<div class="form-group">
+							<label class="" for="FatherPhone">{{'REGISTER_FATHERPHONE' | translate}}</label>
+			                <input type="text" id="FatherPhone" class="form-control "
+			                  minlength="4" maxlength="24"
+			                 name="FatherPhone" [(ngModel)]="model.FatherPhone"
+			                 #name="ngModel" >
+						</div>
+						<div class="form-group">
+							<label class="" for="FatherPassport">{{'REGISTER_FATHERPASSPORT' | translate}}</label>
+			                <input type="text" id="FatherPassport" class="form-control "
+			                  minlength="4" maxlength="24"
+			                 name="FatherPassport" [(ngModel)]="model.FatherPassport"
+			                 #name="ngModel" >
+						</div>
+						<div class="form-group">
+							<label class="" for="PhoneNo">{{'REGISTER_PHONENO' | translate}}</label>
+			                <input type="text" id="PhoneNo" class="form-control "
+			                 required minlength="4" maxlength="24"
+			                 name="PhoneNo" [(ngModel)]="model.PhoneNo"
+			                 #name="ngModel" >
+						</div>
+						<div class="form-group">
+							<label class="" for="MotherName">{{'REGISTER_MOTHERNAME' | translate}}</label>
+			                <input type="text" id="MotherName" class="form-control "
+			                  minlength="4" maxlength="24"
+			                 name="MotherName" [(ngModel)]="model.MotherName"
+			                 #name="ngModel" >
+						</div>
+						<div class="form-group">
+							<label class="" for="MotherPhone">{{'REGISTER_MOTHERPHONE' | translate}}</label>
+			                <input type="text" id="MotherPhone" class="form-control "
+			                  minlength="4" maxlength="24"
+			                 name="MotherPhone" [(ngModel)]="model.MotherPhone"
+			                 #name="ngModel" >
+						</div>
+						<div class="form-group">
+							<label class="" for="MotherPassport">{{'REGISTER_MOTHERPASSPORT' | translate}}</label>
+			                <input type="text" id="MotherPassport" class="form-control "
+			                  minlength="4" maxlength="24"
+			                 name="MotherPassport" [(ngModel)]="model.MotherPassport"
+			                 #name="ngModel" >
+						</div>
+						<div class="row">
+							<div class="col-sm-6 form-group">
+								<label class="" for="Residence">{{'REGISTER_RESIDENCE' | translate}}</label>
+				                <input type="text" id="Residence" class="form-control "
+				                  minlength="4" maxlength="24"
+				                 name="Residence" [(ngModel)]="model.Residence"
+				                 #name="ngModel" >
+							</div>
+							<div class="col-sm-6 form-group">
+								<label class="" for="Nationality">{{'REGISTER_NATIONALITY' | translate}}</label>
+				                <select id="Nationality" class="form-control "
+				                  minlength="4" maxlength="24"
+				                 name="Nationality" [(ngModel)]="model.Nationality"
+				                 #name="ngModel" >
+				                 <option>select</option>
+				                 <option>Indian</option>
+				                 <option>Kenyan</option>
+				                 <option>American</option>
+				                </select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6 form-group">
+								<label class="" for="BillingType">{{'REGISTER_BILLINGTYPE' | translate}}</label>
+				                <select id="BillingType" class="form-control "
+				                  minlength="4" maxlength="24"
+				                 name="BillingType" [(ngModel)]="model.BillingType"
+				                 #name="ngModel" >
+				                 <option>select</option>
+				                 <option>Cash</option>
+				                 <option>card</option>
+				                 <option>cheque</option>
+				                </select>
+							</div>
+							<div class="col-sm-6 form-group">
+								<label class="" for="Religion">{{'REGISTER_RELIGION' | translate}}</label>
+				                <select id="Religion" class="form-control "
+				                  minlength="4" maxlength="24"
+				                 name="Religion" [(ngModel)]="model.Religion"
+				                 #name="ngModel" >
+				                 <option>select</option>
+				                 <option>Hindu</option>
+				                 <option>Muslim</option>
+				                 <option>Christian</option>
+				                </select>
+							</div>
+						</div>
+					</fieldset>
+			</div>
+            <div class="mx-auto" style="width: 200px;">
+				<button type="submit" class="btn btn-primary" [disabled]="!registerForm.form.valid">Submit</button>
+			</div>
+        </div>
+        <hr/>
+        
+        
+    </div>
+    
+  </div>
+
+	
+
+    </form>

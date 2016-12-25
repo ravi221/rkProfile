@@ -4,15 +4,42 @@
 	"PREVIOUS": "Previous",
 	"NEXT": "Next",
 
-	"LOGO_TEXT":"Buchman, L.",
-	"LOGO_CAPTION":"My profile website",
-	"FOOTER_TEXT":"Copyright © 2016 Buchman, L. All rights reserved.",
+	"LOGO_TEXT":"RkDoctor",
+	"LOGO_CAPTION":"Doctor",
+	"FOOTER_TEXT":"Copyright © 2016 All rights reserved.",
 
 	"MENU_ITEM_HOME": "Home",
 	"MENU_ITEM_ABOUT": "About",
 	"MENU_ITEM_CONTACT": "Contact",
 	"MENU_ITEM_IMPRINT": "Imprint",
 	"MENU_ITEM_PROFILE": "Profile",
+	"MENU_ITEM_DOCTORS": "Doctors",
+	"MENU_ITEM_LOGIN": "Login",
+	"MENU_ITEM_FEEDBACK": "Feedback",
+	"MENU_ITEM_REGISTER": "Register",
+
+	"REGISTER_REGDATE": "Reg Date",
+	"REGISTER_REGTIME": "Reg time",
+	"REGISTER_TITLE": "Title",
+	"REGISTER_FIRSTNAME": "First name",
+	"REGISTER_MIDDLENAME": "Middle Name",
+	"REGISTER_LASTNAME": "Surname",
+	"REGISTER_AGE": "Age",
+	"REGISTER_GENDER": "gender",
+	"REGISTER_DATEOFBIRTH": "Date of birth",
+	"REGISTER_ADDRESS": "Address",
+	"REGISTER_EMAIL": "e-mail",
+	"REGISTER_FATHERNAME": "Father Name",
+	"REGISTER_FATHERPHONE": "Father's phone",
+	"REGISTER_FATHERPASSPORT": "Father Pass",
+	"REGISTER_PHONENO": "phone no.",
+	"REGISTER_MOTHERNAME": "Mother Name",
+	"REGISTER_MOTHERPHONE": "Mother's phone",
+	"REGISTER_MOTHERPASSPORT": "Mother's Pass",
+	"REGISTER_RESIDENCE": "Residence",
+	"REGISTER_NATIONALITY": "nationality",
+	"REGISTER_BILLINGTYPE": "Billing type",
+	"REGISTER_RELIGION": "Religion",
 
 
 	"IMPRINT_PAGE_TITLE":"Imprint",
@@ -21,9 +48,148 @@
 
 	"CONTACT_PAGE_HEAD":"Contact us",
 
+	"DOCTORS_PAGE_HEAD":"Doctors",
+	"PATIENTS_PAGE_HEAD":"Patients",
+
+	"MENU_BUTTON_PROFILE":"Profile",
+	"MENU_BUTTON_PATIENT":"Patients",
+
 	"HOME_PAGE_TEXT":"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
 	"CONTACT_PAGE_TEXT":"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
 	"PROFILE_PAGE_TEXT":"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
-	"ABOUT_PAGE_TEXT":"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+	"ABOUT_PAGE_TEXT":"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+	"Buttons":[
+		{
+			"Id": 1,
+			"Title": "Register",
+			"Icon": "fa fa fa-user",
+			"IconClass":"image text-primary",
+			"TextClass":"text-primary btn btn-default",
+			"Link": "/register"
+		},
+		{
+			"Id": 2,
+			"Title": "Feedback",
+			"Icon": "fa fa-thumbs-up",
+			"IconClass":"image text-primary",
+			"TextClass":"text-success btn btn-default",
+			"Link": "/feedback"
+		},
+		{
+			"Id": 3,
+			"Title": "Doctor",
+			"Icon": "fa fa-user-md",
+			"IconClass":"image text-primary",
+			"TextClass":"text-info btn btn-default",
+			"Link": "/doctors"
+		}
+	],
+
+	"PatientServiceList":[
+		{
+			"Id": 100,
+			"Title": "Complaints",
+			"Icon": "fa fa-picture-o",
+			"IconClass":"image text-primary",
+			"TextClass":"info text-primary",
+			"Head1": "Notes",
+			"Head2": "Date",
+			"Head3": "Time"
+		},
+		{
+			"Id": 22,
+			"Title": "Allergies",
+			"Icon": "fa fa-medkit",
+			"IconClass":"image text-success",
+			"TextClass":"info text-success",
+			"Head1": "Food",
+			"Head2": "Drug",
+			"Head3": "Others"
+		},
+		{
+			"Id": 12,
+			"Title": "Diagnosis",
+			"Icon": "fa fa-stethoscope",
+			"IconClass":"image text-info",
+			"TextClass":"info text-info",
+			"Head1": "Notes",
+			"Head2": "Date",
+			"Head3": "Time"
+		},
+		{
+			"Id": 101,
+			"Title": "Prescriptions",
+			"Icon": "fa fa-file-text",
+			"IconClass":"image text-warning",
+			"TextClass":"info text-warning",
+			"Head1": "Notes",
+			"Head2": "Date",
+			"Head3": "Time"
+		},
+		{
+			"Id": 325,
+			"Title": "Lab Results",
+			"Icon": "fa fa-flask",
+			"IconClass":"image text-danger",
+			"TextClass":"info text-danger",
+			"microId": 425,
+			"citiScanId": 1425,
+			"Head1": "Group Id",
+			"Head2": "Description",
+			"Head3": "Results",
+			"Departments" :[
+				{
+					"Id": 1,
+					"GroupId": "micro",
+					"Icon": "",
+					"IconClass":"",
+					"TextClass":"info text-danger"
+				},
+				{
+					"Id": 2,
+					"GroupId": "hematology",
+					"Icon": "",
+					"IconClass":"",
+					"TextClass":"info text-danger"
+				},
+				{
+					"Id": 3,
+					"GroupId": "biochemistry",
+					"Icon": "",
+					"IconClass":"",
+					"TextClass":"info text-danger"
+				},
+				{
+					"Id": 4,
+					"GroupId": "coagulation",
+					"Icon": "",
+					"IconClass":"",
+					"TextClass":"info text-danger"
+				}
+			]
+		},
+		{
+			"Id": 625,
+			"Title": "Radiology",
+			"Icon": "fa fa-wheelchair",
+			"IconClass":"image text-primary",
+			"TextClass":"info text-primary",
+			"Head1": "Group Id",
+			"Head2": "Description",
+			"Head3": "Results"
+		},
+		{
+			"Id": 600,
+			"Title": "PatientData",
+			"Icon": "fa fa-file-o",
+			"IconClass":"image text-info",
+			"TextClass":"info text-info",
+			"Head1": "Patient Name",
+			"Head2": "Ward Name",
+			"Head3": "Date of Birth"
+		}
+	]
+
+	
 
 }

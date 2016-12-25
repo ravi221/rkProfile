@@ -1,0 +1,354 @@
+<div *ngIf="patients">
+<h2>{{'PATIENTS_PAGE_HEAD' | translate}}</h2>
+  <div class="card card-block animated fadeInLeft" *ngFor="let pat of patients">
+        <div class="row" (click)="showPatient(pat.encounter_nr)">
+            <div class="col-xs-3 col-md-2 col-sm-2">
+                <img class="img-fluid img-circle" src="images/no-image.png" alt="">
+            </div>
+            <div class="col-xs-9 col-md-9">
+                <span style="cursor: pointer; cursor: hand;">
+                    <h3 class="card-title">{{pat.PatientName}}</h3>   
+                </span>
+                <div class="row">
+                    <div class="col-xs-6 col-md-6">
+                        <p class="text-default"><i class="fa fa-user-md"></i> {{pat.doctor}}</p>
+                    </div>
+                    <div class="col-xs-6 col-md-6">
+                        <p class="text-default"><i class="fa fa-calendar"></i> {{pat.dob}}</p>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row">
+                    <div class="col-xs-6 col-md-6">
+                        <p class="text-default">Ward : {{pat.ward_name}}</p>
+                    </div>
+                    <!-- <div class="col-xs-6 col-md-6">
+                        <p class="text-default"><i class="fa fa-child"></i> {{pat.religion}}</p>
+                    </div> -->
+                </div>
+                
+            </div>
+        </div>
+  </div>
+</div>
+
+<!-- Show a patients / -->
+
+<!-- Show a patient -->
+<div *ngIf="patient">
+
+  <div class="card card-block ">
+        <div class="row" (click)="showPatientDesc(patient.patientData.encounter_nr)">
+            <div class="col-xs-3 col-md-2 col-sm-2">
+                <img class="card-img img-fluid img-circle" src="images/no-image.png" alt="">
+            </div>
+            <div class="col-xs-9 col-md-9">
+                <span style="cursor: pointer; cursor: hand;">
+                    <h3 class="card-title text-primary"><span *ngIf="patient.patientData.title">{{patient.patientData.title}}</span> {{patient.patientData.name_first}} {{patient.patientData.name_last}}</h3>   
+                </span>
+                <div class="row">
+                    <div class="col-xs-6 col-md-6">
+                        <p class="text-default"><i class="fa fa-user-md"></i> {{patient.patientData.consulting_dr}}</p>
+                    </div>
+                    <div class="col-xs-6 col-md-6">
+                        <p class="text-default"><i class="fa fa-calendar"></i> {{patient.patientData.date_birth}}</p>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row">
+                    <div class="col-xs-6 col-md-6">
+                        <p class="text-default">Ward : {{patient.patientData.ward_name}}</p>
+                    </div>
+                    <!-- <div class="col-xs-6 col-md-6">
+                        <p class="text-default"><i class="fa fa-child"></i> {{patient.patientData.religion}}</p>
+                    </div> -->
+                </div>
+            </div>
+            <button type="button" class="btn btn-link pull-right">more...</button>
+        </div>
+  </div>
+
+  <div class="card card-block bg-default" style="visibility: visible; animation-delay: 0.4s;">
+<!-- regular accordion -->
+    <!-- <accordion [expandAll]="true"> -->
+      {{patient.encounterData | json}}
+     
+    <span *ngFor="let item of 'PatientServiceList'|translate ">
+        <p class="{{item.IconClass}}"><i class="{{item.Icon}}" aria-hidden="true"></i>&nbsp;&nbsp; {{item.Title}}</p>
+            
+            <table class="table table-bordered table-responsive">
+                <thead *ngIf="patient.encounterData">
+                    <tr class="table-success">
+                        <th>{{item.Head1}}</th>
+                        <th>{{item.Head2}}</th>
+                        <th>{{item.Head3}}</th>
+                    </tr>
+                </thead>
+                <!-- <thead *ngIf="patient.labData && item.Id == 325 && item.Id == 625 && item.Id == 600">
+                    <tr class="table-success">
+                        <th>Lab Description</th>
+                    </tr>
+                </thead> -->
+          
+                <tbody *ngFor="let edata of patient.encounterData"> 
+                    <tr *ngIf="edata.type_nr == item.Id && edata.type_nr != 22">
+                        <td>{{edata.notes}}</td>
+                        <td>{{edata.date}}</td>
+                        <td>{{edata.time}}</td>
+                    </tr>
+                    <tr *ngIf="edata.type_nr == item.Id && edata.type_nr == 22">
+                        <td>{{edata.notes.Food}}</td>
+                        <td>{{edata.notes.Drug}}</td>
+                        <td>{{edata.notes.Other}}</td>
+                    </tr>
+                </tbody>
+                 <tbody *ngFor="let ldata of patient.labData"> 
+                    <tr *ngIf="ldata.type_nr == item.Id">
+                        <td>{{ldata.group_id}}</td>
+                        <td>{{ldata.bill_item_desc}}</td>
+                        <td>{{ldata.bill_item_desc}}</td>
+                        
+                    </tr>
+                   
+                </tbody>
+                <tbody *ngIf="item.Id == 600"> 
+                    <tr>
+                        <td> {{patient.patientData.name_first}} {{patient.patientData.name_last}}</td>
+                        <td>{{patient.patientData.ward_name}}</td>
+                        <td>{{patient.patientData.date_birth}}</td>
+                        
+                    </tr>
+                   
+                </tbody>
+                <!-- <tbody *ngIf="patient.encounterData && patient.patientData && patient.labData"> 
+                    <tr class="alert alert-danger">
+                        <td>No results Found</td>
+                        
+                    </tr>
+                   
+                </tbody> -->
+
+           
+            </table>
+
+            
+    </span>
+    <accordion >
+        <span *ngFor="let item of 'PatientServiceList'|translate ">
+       
+        <accordion-group  >
+            <accordion-heading style="font-size: 20px">
+                <p class="{{item.IconClass}}"><i class="{{item.Icon}}" aria-hidden="true"></i>&nbsp;&nbsp; {{item.Title}}</p>
+            </accordion-heading>
+            <div class="card-block">
+                <span *ngIf="item.Id == 600">
+                            
+                    <div class="col-xs-9 col-md-9">
+                        
+                        <div class="row">
+                            <div class="col-xs-6 col-md-6">
+                                <p class="text-default"><i class="fa fa-user-md"></i> <span *ngIf="patient.patientData.title">{{patient.patientData.title}}</span> {{patient.patientData.name_first}} {{patient.patientData.name_last}}</p>
+                            </div>
+                            <div class="col-xs-6 col-md-6">
+                                <p class="text-default"><i class="fa fa-calendar"></i> {{patient.patientData.date_birth}}</p>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-xs-6 col-md-6">
+                                <p class="text-default">Ward : {{patient.patientData.ward_name}}</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </span>
+                
+                
+                <div class="" *ngFor="let edata of patient.encounterData">
+                    <div class="" *ngIf="edata.type_nr == item.Id">
+                        <span *ngIf="edata.type_nr == 22">
+                            
+                            <p><strong class="{{item.IconClass}}">Allergies</strong> : {{edata.notes}}</p>
+                            <p><strong class="{{item.IconClass}}">Date</strong> : {{edata.date}}</p>
+                            <p><strong class="{{item.IconClass}}">Time</strong> : {{edata.time}}</p>
+                            <hr/>
+                        </span>
+                        <!-- <span *ngIf="edata.type_nr != 22"><h1>No Result Found</h1></span> -->
+                        <span *ngIf="edata.type_nr != 22 && edata.type_nr != 12">
+                            <p><strong class="{{item.IconClass}}">Notes</strong> : {{edata.notes}}</p>
+                            <p><strong class="{{item.IconClass}}">Date</strong> : {{edata.date}}</p>
+                            <p><strong class="{{item.IconClass}}">Time</strong> : {{edata.time}}</p>
+                            <hr/>
+                        </span>
+                        <span *ngIf="edata.type_nr == 12">
+                            <p><strong class="{{item.IconClass}}">Diagnosis</strong> : {{edata.notes}}</p>
+                            <p><strong class="{{item.IconClass}}">Date</strong> : {{edata.date}}</p>
+                            <p><strong class="{{item.IconClass}}">Time</strong> : {{edata.time}}</p>
+                            <hr/>
+                        </span>
+                    </div>
+                </div>
+                <div class="" *ngFor="let ldata of patient.labData">
+                    <div *ngIf="ldata.type_nr == item.Id">
+                         <span *ngIf="ldata.type_nr == 325 && ldata.group_id == 'hematology'">
+                            <p><strong class="text-primary">{{ldata.group_id}}</strong> : {{ldata.bill_item_desc}}</p>
+                        </span>
+
+                        <span *ngIf="ldata.type_nr == 325 && ldata.group_id == 'biochemistry'">
+                            <p><strong class="text-success">{{ldata.group_id}}</strong> : {{ldata.bill_item_desc}}</p>
+                        </span>
+                        <span *ngIf="ldata.type_nr == 325 && ldata.group_id == 'coagulation'">
+                            <p><strong class="text-warning">{{ldata.group_id}}</strong> : {{ldata.bill_item_desc}}</p>
+                        </span>
+                        <span *ngIf="ldata.type_nr == 625">
+                            <p><strong class="{{item.IconClass}}">{{ldata.group_id}}</strong> : {{ldata.bill_item_desc}}</p>
+                        </span>
+                        
+                    </div>
+                    <div *ngIf="ldata.type_nr == item.citiScanId">
+                        <span *ngIf="ldata.type_nr == 1425">
+                            <p><strong class="text-primary">Others</strong> : {{ldata.bill_item_desc}}</p>
+                        </span>
+                    </div>
+                    <div *ngIf="ldata.type_nr == item.microId">
+                        <span *ngIf="ldata.type_nr == 425">
+                            <p><strong class="text-danger">{{ldata.group_id}}</strong> : {{ldata.bill_item_desc}}</p>
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+        </accordion-group>
+        <hr/>
+        </span>
+    </accordion>
+
+   <!--  <div class="row" *ngIf="ShowTemplateOfPatientServiceList">
+       
+        <div class="col-md-4 col-xs-6 col-sm-4 col-lg-4 animated fadeInUp"
+         *ngFor="let item of 'PatientServiceList'|translate ">
+            <div class="box" (click)="showPatientService(item.Id)">                           
+                <div class="icon">
+                    <div class="{{item.IconClass}}"><i class="{{item.Icon}}"></i></div>
+                    <div class="{{item.TextClass}}">
+                        <h2 class="title">{{item.Title}}</h2>
+                        <div class="more">
+                            <small title="Title Link" class="">
+                                Read More <i class="fa fa-angle-double-right"></i>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                
+            </div> 
+        </div>
+
+            
+    </div> -->
+
+</div>
+</div>
+
+<!-- Show a patient / -->
+
+
+<div *ngIf="patientdesc">
+
+    <div class="card card-block animated">
+<!-- regular accordion -->
+    <!-- <accordion [expandAll]="true"> -->
+
+     <!-- {{patientdesc | json}}  -->
+    <accordion >
+        <span *ngFor="let item of 'PatientServiceList'|translate ">
+       
+        <accordion-group  >
+            <accordion-heading style="font-size: 20px">
+                <p class="{{item.IconClass}}"><i class="{{item.Icon}}" aria-hidden="true"></i>&nbsp;&nbsp; {{item.Title}}</p>
+            </accordion-heading>
+            <div class="card-block">
+                <span *ngIf="item.Id == 600">
+                            
+                    <div class="col-xs-9 col-md-9">
+                        
+                        <div class="row">
+                            <div class="col-xs-6 col-md-6">
+                                <p class="text-default"><i class="fa fa-user-md"></i> <span *ngIf="patientdesc.patientData.title">{{patientdesc.patientData.title}}</span> {{patientdesc.patientData.name_first}} {{patientdesc.patientData.name_last}}</p>
+                            </div>
+                            <div class="col-xs-6 col-md-6">
+                                <p class="text-default"><i class="fa fa-calendar"></i> {{patientdesc.patientData.date_birth}}</p>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-xs-6 col-md-6">
+                                <p class="text-default">Ward : {{patientdesc.patientData.ward_name}}</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </span>
+                
+                
+                <div class="" *ngFor="let edata of patientdesc.encounterData">
+                    <div class="" *ngIf="edata.type_nr == item.Id">
+                        <span *ngIf="edata.type_nr == 22">
+                            
+                            <p><strong class="{{item.IconClass}}">Allergies</strong> : {{edata.notes}}</p>
+                            <p><strong class="{{item.IconClass}}">Date</strong> : {{edata.date}}</p>
+                            <p><strong class="{{item.IconClass}}">Time</strong> : {{edata.time}}</p>
+                            <hr/>
+                        </span>
+                        <span *ngIf="edata.type_nr != 22 && edata.type_nr != 12">
+                            <p><strong class="{{item.IconClass}}">Notes</strong> : {{edata.notes}}</p>
+                            <p><strong class="{{item.IconClass}}">Date</strong> : {{edata.date}}</p>
+                            <p><strong class="{{item.IconClass}}">Time</strong> : {{edata.time}}</p>
+                            <hr/>
+                        </span>
+                        <span *ngIf="edata.type_nr == 12">
+                            <p><strong class="{{item.IconClass}}">Diagnosis</strong> : {{edata.notes}}</p>
+                            <p><strong class="{{item.IconClass}}">Date</strong> : {{edata.date}}</p>
+                            <p><strong class="{{item.IconClass}}">Time</strong> : {{edata.time}}</p>
+                            <hr/>
+                        </span>
+                    </div>
+                </div>
+                <div class="" *ngFor="let ldata of patientdesc.labData">
+                    <div *ngIf="ldata.type_nr == item.Id">
+                        <span *ngIf="ldata.type_nr == 325 && ldata.group_id == 'hematology'">
+                            <p><strong>{{ldata.group_id}}</strong> : {{ldata.bill_item_desc}}</p>
+                        </span>
+
+                        <span *ngIf="ldata.type_nr == 325 && ldata.group_id == 'biochemistry'">
+                            <p><strong>{{ldata.group_id}}</strong> : {{ldata.bill_item_desc}}</p>
+                        </span>
+                        <span *ngIf="ldata.type_nr == 325 && ldata.group_id == 'coagulation'">
+                            <p><strong>{{ldata.group_id}}</strong> : {{ldata.bill_item_desc}}</p>
+                        </span>
+                        <span *ngIf="ldata.type_nr == 625">
+                            <p><strong>{{ldata.group_id}}</strong> : {{ldata.bill_item_desc}}</p>
+                        </span>
+                        
+                    </div>
+                    <div *ngIf="ldata.type_nr == item.citiScanId">
+                        <span *ngIf="ldata.type_nr == 1425">
+                            <p><strong>Others</strong> : {{ldata.bill_item_desc}}</p>
+                        </span>
+                    </div>
+                    <div *ngIf="ldata.type_nr == item.microId">
+                        <span *ngIf="ldata.type_nr == 425">
+                            <p><strong>{{ldata.group_id}}</strong> : {{ldata.bill_item_desc}}</p>
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+        </accordion-group>
+        <hr/>
+        </span>
+    </accordion>
+    </div>
+</div>
+

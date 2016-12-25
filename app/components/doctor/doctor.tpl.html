@@ -1,0 +1,64 @@
+<!-- Show list of doctors -->
+<div *ngIf="doctors && showDoctors">
+<h2>{{'DOCTORS_PAGE_HEAD' | translate}}</h2>
+    <div class="card card-block animated bounceInUp" *ngFor="let doc of doctors"  >
+        <div class="row" (click)="showPatients(doc.personell_nr)">
+            <div class="col-xs-3 col-md-3 col-sm-4">
+                <img class="img-fluid img-circle" src="images/no-image.png" alt="">
+            </div>
+            
+            <div class="col-xs-9 col-md-9 col-sm-8">
+                <span style="cursor: pointer; cursor: hand;">
+                    <h3 class="card-title text-primary">{{doc.DoctorName}}&nbsp;&nbsp;{{doc.pid}}</h3>   
+                </span>
+                <div class="row">
+                    <div class="col-xs-6 col-md-6">
+                        <p class="text-default"><i class="fa fa-stethoscope"></i> {{doc.department}}</p>
+                    </div>
+                    <div class="col-xs-6 col-md-6">
+                        
+                    </div>
+                </div>
+                <hr/>
+                <div class="row">
+                    <div class="col-xs-6 col-md-6">
+                        <button class="btn btn-block " style="background-color: #00ac8c; color: #fff" (click)="showDoctor(doc.personell_nr)" >{{'MENU_BUTTON_PROFILE' | translate}}</button>
+                    </div>
+                    <div class="col-xs-6 col-md-6">
+                        <button class="btn btn-info  btn-block" (click)="showPatients(doc.personell_nr)">{{'MENU_BUTTON_PATIENT' | translate}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </div>
+</div>
+
+<!-- Show list of doctors / -->
+
+<!-- Show a doctor -->
+<div *ngIf="!showDoctors && doctor">
+<h2>{{'MENU_BUTTON_PATIENT' | translate}}</h2>
+ <div class="card card-block animated fadeInUp">
+        <div class="row" (click)="showPatients(doctor.personell_nr)">
+            <div class="col-xs-3 col-md-2 col-sm-2">
+                <img class="img-fluid img-circle" src="images/no-image.png" alt="">
+            </div>
+            <div class="col-xs-9 col-md-9">
+                <span style="cursor: pointer; cursor: hand;">
+                    <h3 class="card-title">{{doctor.DoctorName}}</h3>   
+                </span>
+                <div class="row">
+                    <div class="col-xs-6 col-md-6">
+                        <i class="fa fa-stethoscope"></i> {{doctor.department}}
+                    </div>
+                    <!-- <div class="col-xs-6 col-md-6">
+                        <i class="fa fa-inr"></i> {{doctor.doctor_fee}} 
+                    </div> -->
+                </div>
+            </div>
+        </div>
+  </div>
+</div>
+
+<!-- Show a doctor / -->
+

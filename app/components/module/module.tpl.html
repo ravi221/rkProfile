@@ -1,0 +1,10 @@
+<h1>{{pageHeading}}</h1>
+
+<div class="card card-block" >
+		<div class="row" >
+	        <div class="col-xs-4 col-md-4 col-sm-4" *ngFor="let item of 'Buttons'|translate ">
+	        	<button class="{{item.TextClass}}" routerLink="{{item.Link}}" routerLinkActive="active"><i class="{{item.Icon}}"></i> {{item.Title | translate}}</button>
+	        </div>
+	    </div>
+    
+</div>

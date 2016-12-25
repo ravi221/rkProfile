@@ -1,0 +1,64 @@
+{{pageHeading}}
+
+<div class="card card-block ">
+
+	<div class="col-xs-3 col-md-2 col-sm-3">
+		<img class="card-img img-fluid img-responsive rounded-circle" src="images/no-image.png" alt="">
+	</div>
+	<div class="col-xs-9 col-md-9">
+		<a routerLink="../patientlist" routerLinkActive="active">xxxx</a><br/>
+		<span class="card-text text-muted">45 Years | M</span><br/>
+		<span class="card-text text-muted">Jan 1 , 1978</span><br/>
+		
+	</div>
+	
+	<div class="col-xs-12 col-md-12 col-sm-12 " style="margin-top: 20px">
+		<span class="card-text text-muted">Ward A, Room 6 / Admitted: 01/15/2015</span>
+		
+	</div>
+</div>
+
+<div class="card card-block ">
+<!-- regular accordion -->
+    <!-- <accordion [expandAll]="true"> -->
+    <accordion>
+        
+        <accordion-group [isOpened]="true">
+        	<accordion-heading style="font-size: 20px">Allergies</accordion-heading>
+        	<div class="card-block">
+        		Its all about me.
+        	</div>
+        </accordion-group>
+        <hr>
+        <accordion-group>
+        	<accordion-heading style="font-size: 20px">Charts</accordion-heading>
+        	<div class="card-block">
+        		Its all about me.
+        	</div>
+        </accordion-group>
+        <hr>
+        <accordion-group>
+        	<accordion-heading style="font-size: 20px">Documents</accordion-heading>
+            <div class="card-block">
+        		Its all about me.
+        	</div>
+        </accordion-group>
+        <hr>
+        <accordion-group>
+        	<accordion-heading style="font-size: 20px">Images</accordion-heading>
+            <div class="card-block">
+        		<img class="card-img img-fluid img-responsive rounded-circle" src="images/no-image.png" alt="">
+        	</div>
+        </accordion-group>
+        <hr>
+        <accordion-group>
+        	<accordion-heading style="font-size: 20px">Lab Results</accordion-heading>
+            <div class="card-block">
+        		Its all about me.
+        	</div>
+        </accordion-group>
+    </accordion>
+</div>
+
+    
+
